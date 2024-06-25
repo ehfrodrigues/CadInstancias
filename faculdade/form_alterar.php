@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Configuração de Instância</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <?php
+        // Receber o ID da URL
+        $id = (int)$_GET['id'];
+    ?>
+   
+    <form form action="alterar.php" method="post">
+        
+        <label for="nomeInstancia">Nome da Instância:</label><br>
+        <input type="text" id="nomeInstancia" name="nomeInstancia" required><br><br>
+        <input type="hidden" name="id" value="<?php echo $id; ?>">
+
+        <label for="ocpus">Quantidade de oCPUs:</label><br>
+        <select id="ocpus" name="ocpus" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select><br><br>
+
+        <label for="memoria">Quantidade de Memórias:</label><br>
+        <select id="memoria" name="memoria" required>
+            <option value="2">2 GB</option>
+            <option value="4">4 GB</option>
+            <option value="8">8 GB</option>
+            <option value="16">16 GB</option>
+            <option value="32">32 GB</option>
+        </select><br><br>
+
+        <label for="so">Tipo de SO:</label><br>
+        <select id="so" name="so" required>
+            <option value="ubuntu20">Ubuntu 20</option>
+            <option value="ubuntu24">Ubuntu 24</option>
+            <option value="centos7">CentOS 7</option>
+            <option value="centos8">CentOS 8</option>
+            <option value="winserver16">Windows Server 16</option>
+            <option value="winserver19">Windows Server 19</option>
+            <option value="winserver22">Windows Server 22</option>
+        </select><br><br>
+
+        <label for="senhaInicial">Senha Inicial:</label><br>
+        <input type="password" id="senhaInicial" name="senhaInicial" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}" title="A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula, um número, um caractere especial e pelo menos 8 caracteres." required><br><br>
+
+        <input type="submit" value="Enviar">
+
+    </form>
+</body>
+</html>
